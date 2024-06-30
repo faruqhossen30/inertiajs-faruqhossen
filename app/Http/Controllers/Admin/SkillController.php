@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class SkillController extends Controller
 {
@@ -36,8 +37,6 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request->all();
-
         $request->validate([
             'name' => 'required'
         ]);
@@ -45,12 +44,12 @@ class SkillController extends Controller
         $data = [
             'name' => $request->name,
             'slug' => Str::slug($request->name),
-            'icon' => $request->icon,
+            'description' => $request->description,
             'category_id' => $request->category_id,
             'author_id' => Auth::user()->id,
         ];
         if ($request->file('thumbnail')) {
-            $file_name = $request->file('thumbnail')->store('category');
+            $file_name = $request->file('thumbnail')->store('skill');
             $data['thumbnail'] = $file_name;
         }
 
@@ -72,8 +71,9 @@ class SkillController extends Controller
      */
     public function edit(string $id)
     {
+        $categories = Category::get();
         $skill = Skill::where('id', $id)->first();
-        return Inertia::render('Admin/Skill/Edit', ['skill' => $skill]);
+        return Inertia::render('Admin/Skill/Edit', ['skill' => $skill,'categories'=>$categories]);
     }
 
     /**
@@ -88,11 +88,24 @@ class SkillController extends Controller
         $data = [
             'name' => $request->name,
             'slug' => Str::slug($request->name),
+            'description' => $request->description,
+            'category_id' => $request->category_id,
             'author_id' => Auth::user()->id,
         ];
 
-        Category::firstwhere('id', $id)->update($data);
-        return to_route('category.index');
+        $skill = Skill::firstwhere('id', $id);
+        if ($request->file('thumbnail')) {
+            if ($skill->thumbnail != null && Storage::exists($skill->thumbnail)) {
+                Storage::delete($skill->thumbnail);
+            }
+
+            $file_name = $request->file('thumbnail')->store('skill');
+            $data['thumbnail'] = $file_name;
+        }
+
+        $skill->update($data);
+
+        return to_route('skill.index');
     }
 
     /**
@@ -100,7 +113,12 @@ class SkillController extends Controller
      */
     public function destroy(string $id)
     {
-        Category::where('id', $id)->delete();
-        return redirect()->route('category.index');
+        $skill = Skill::firstwhere('id', $id);
+
+        if ($skill->thumbnail != null && Storage::exists($skill->thumbnail)) {
+            Storage::delete($skill->thumbnail);
+        }
+        $skill->delete();
+        return redirect()->route('skill.index');
     }
 }

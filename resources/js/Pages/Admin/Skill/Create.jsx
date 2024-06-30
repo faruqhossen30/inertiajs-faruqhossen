@@ -7,10 +7,10 @@ import Input from '@/Components/Form/Input';
 import SubmitButton from '@/Components/Form/SubmitButton';
 
 
-export default function Create({ auth,categories }) {
+export default function Create({ auth, categories }) {
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
-        icon: '',
+        description: '',
         category_id: '',
         thumbnail: null,
         status: 1,
@@ -43,23 +43,24 @@ export default function Create({ auth,categories }) {
                                 <InputLabel isRequired={true} labelFor="Category" />
                                 <select id="Category" name="category_id" className="py-2 px-4 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
                                     onChange={(e) => setData('category_id', e.target.value)}>
-                                        {
-                                            categories.map((category, index)=>{
-                                                return <option value={category.id} key={index}>{category.name}</option>
-                                            })
-                                        }
+                                    {
+                                        categories.map((category, index) => {
+                                            return <option value={category.id} key={index}>{category.name}</option>
+                                        })
+                                    }
                                 </select>
                                 <p className="text-sm text-red-600 mt-2">{errors.status}</p>
                             </div>
                             <div>
-                                <InputLabel isRequired={true} labelFor="icon" />
-                                <Input id="icon" type="text" name="icon" value={data.icon} autoComplete="icon" placeholder="icon" onChange={(e) => setData('icon', e.target.value)} />
-                                <p className="text-sm text-red-600 mt-2">{errors.name}</p>
+                                <InputLabel isRequired={true} labelFor="Short Description" />
+                                <textarea id="description" type="file" name="description" placeholder="description" onChange={(e) => setData('description', e.target.value)}
+                                    className="border py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"></textarea>
+                                <p className="text-sm text-red-600 mt-2">{errors.thumbnail}</p>
                             </div>
 
                             <div>
                                 <InputLabel isRequired={true} labelFor="thumbnail" />
-                                <input id="thumbnail" type="file" name="thumbnail"  placeholder="thumbnail" onChange={(e) => setData('thumbnail', e.target.files[0])} />
+                                <input id="thumbnail" type="file" name="thumbnail" placeholder="thumbnail" onChange={(e) => setData('thumbnail', e.target.files[0])} />
                                 <p className="text-sm text-red-600 mt-2">{errors.thumbnail}</p>
                             </div>
 

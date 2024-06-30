@@ -1,4 +1,4 @@
-import { ServerStackIcon } from '@heroicons/react/24/outline'
+import { CircleStackIcon, CodeBracketIcon, MagnifyingGlassCircleIcon, ServerIcon, ServerStackIcon } from '@heroicons/react/24/outline'
 import { TbSeo } from "react-icons/tb";
 import { MdPreview } from "react-icons/md";
 import { TbHttpOptions } from "react-icons/tb";
@@ -23,10 +23,10 @@ export default function Feature() {
             <div className="mt-5 lg:mt-16 grid lg:grid-cols-3 gap-8 lg:gap-12">
                 <div className="lg:col-span-1">
                     <h2 className="font-bold text-2xl md:text-3xl text-gray-800 dark:text-gray-200">
-                        We tackle the challenges start-ups face
+                    Professional Summary
                     </h2>
                     <p className="mt-2 md:mt-4 text-gray-500">
-                        Besides working with start-up enterprises as a partner for digitalization, we have built enterprise products for common pain points that we have encountered in various products and projects.
+                    Experienced PHP Laravel Developer with a strong background in developing and maintaining scalable web applications. Proficient in utilizing Laravel's robust features to create secure, high-performance applications. Skilled in Shopify development, integrating third-party services, and ensuring smooth deployment processes. Adept at working collaboratively in agile environments and committed to continuous learning and improvement.
                     </p>
                 </div>
 
@@ -35,15 +35,14 @@ export default function Feature() {
                     <div className="grid sm:grid-cols-2 gap-8 md:gap-12">
 
                         <div className="flex gap-x-5">
-                            <TbSeo className="h-8 w-8" />
+                            <CircleStackIcon className="h-14 w-14" />
                             <div className="grow">
                                 <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
-                                    SEO AUDIT
+                                    Requirement Gathering and Analysis
                                 </h3>
                                 <p className="mt-1 text-gray-600 dark:text-gray-400">
-                                    Conduct deep technical
-                                    audits to find gaps
-                                    based on target keywords.
+                                    Meet with stakeholders to understand their needs.
+                                    Analyze the requirements to determine project scope and objectives.
                                 </p>
                             </div>
                         </div>
@@ -51,15 +50,17 @@ export default function Feature() {
 
 
                         <div className="flex gap-x-5">
-                            <MdPreview className="h-8 w-8" />
-                            <div className="grow">
+                            <div>
+                                <CodeBracketIcon className="h-8 w-8" />
+                            </div>
+                            <div className="">
                                 <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
-                                    REVIEW & UPDATE
+                                    Building the Application
                                 </h3>
                                 <p className="mt-1 text-gray-600 dark:text-gray-400">
-                                    Testing everything
-                                    and constantly improving
-                                    SEO strategy.
+                                    Develop the application's core features by creating models, controllers, and views.
+                                    Implement authentication and authorization built-in features.
+                                    Write business logic and handle data processing in controllers and models.
                                 </p>
                             </div>
                         </div>
@@ -67,15 +68,17 @@ export default function Feature() {
 
 
                         <div className="flex gap-x-5">
-                            <GiArchiveResearch className="h-8 w-8" />
+                            <div>
+                                <MagnifyingGlassCircleIcon className="h-8 w-8" />
+                            </div>
                             <div className="grow">
                                 <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
-                                    RESEARCH
+                                    Testing and Debugging
                                 </h3>
                                 <p className="mt-1 text-gray-600 dark:text-gray-400">
-                                    Run meticulous
-                                    Keyword research and
-                                    advanced rank tracking.
+                                    Write and run unit tests and feature tests using Laravel's testing tools.
+                                    Debug and fix any issues found during testing.
+                                    Perform code reviews to ensure code quality and maintainability.
                                 </p>
                             </div>
                         </div>
@@ -83,15 +86,17 @@ export default function Feature() {
 
 
                         <div className="flex gap-x-5">
-                            <TbHttpOptions className="h-8 w-8" />
+                            <div>
+                                <ServerIcon className="h-8 w-8" />
+                            </div>
                             <div className="grow">
                                 <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
-                                    OPTIMIZATION
+                                    Deployment
                                 </h3>
                                 <p className="mt-1 text-gray-600 dark:text-gray-400">
-                                    Target On-page,
-                                    Off-page SEO features
-                                    to optimize website.
+                                    Prepare the application for deployment by optimizing performance and security.
+                                    Deploy the application to a staging or production server.
+                                    Set up continuous integration and continuous deployment (CI/CD) pipelines if necessary.
                                 </p>
                             </div>
                         </div>

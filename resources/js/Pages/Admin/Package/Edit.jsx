@@ -43,7 +43,7 @@ export default function Edit({ auth, pac }) {
 
                             {/* <div>
                                 <InputLabel isRequired={true} labelFor="thumbnail" />
-                                <input id="thumbnail" type="file" name="thumbnail"  value={data.thumbnail}  placeholder="thumbnail" onChange={(e) => setData('thumbnail', e.target.files[0])} />
+                                <input id="thumbnail" type="file" name="thumbnail"  value={data.thumbnail}  placeholder="thumbnail"     } />
                                 <p className="text-sm text-red-600 mt-2">{errors.thumbnail}</p>
                             </div> */}
 

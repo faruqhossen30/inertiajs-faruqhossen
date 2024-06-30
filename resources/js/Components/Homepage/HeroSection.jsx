@@ -25,8 +25,7 @@ export default function HeroSection() {
                 </div>
 
                 <div className="mt-5 max-w-3xl text-center mx-auto">
-                    <p className="text-lg text-gray-600 dark:text-gray-400">Best Software Design & Development, Website Design & Development, Best SEO Agency
-                        & Digital Marketing,  and Graphics Company of Bangladesh.</p>
+                    <p className="text-lg text-gray-600 dark:text-gray-400">I am a skilled developer specializing in Laravel, PHP, and Shopify. I create robust web applications, streamline e-commerce solutions, and deliver seamless user experiences with expertise in these technologies.</p>
                 </div>
 
 
