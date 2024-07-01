@@ -8,18 +8,18 @@ import BreadcumComponent from '@/Components/Dashboard/BreadcumComponent';
 
 
 export default function Create({ auth, skill, categories }) {
-    const { data, setData, put, processing, errors, reset } = useForm({
+    const { data, setData, put,post, processing, errors, reset } = useForm({
         name: skill.name,
         description: skill.description,
         category_id: skill.category_id,
-        thumbnail: skill.thumbnail,
+        thumbnail: null,
         status: skill.status,
     });
 
     function submit(e) {
         e.preventDefault()
         console.log(data);
-        put(route('skill.update', skill.id));
+        post(route('skillupdate', skill.id));
     }
 
     return (
