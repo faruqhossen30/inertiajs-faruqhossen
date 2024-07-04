@@ -57,8 +57,8 @@ export default function Footer({ auth }) {
                     </Link>
 
 .                    <div className="mt-3">
-                        <p className="text-gray-500 dark:text-neutral-500">We're part of the <a className="font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-500 dark:hover:text-blue-400" href="#">Htmlstream</a> family.</p>
-                        <p className="text-gray-500 dark:text-neutral-500">© Preline. 2022 Htmlstream. All rights reserved.</p>
+                        <p className="text-gray-500 dark:text-neutral-500">Deal with pactisize individuals.</p>
+                        <p className="text-gray-500 dark:text-neutral-500">© Faruq Hossen © {new Date().getFullYear()}, All rights reserved.</p>
                     </div>
 
 

@@ -10,16 +10,16 @@ export default function ContactPage({ auth, user, laravelVersion, phpVersion }) 
 
     return (
         <AppLayout>
-            <Head title="ContactPage" />
+            <Head title="Contact" />
 
-            <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+            <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto min-h-screen">
                 <div className="max-w-2xl lg:max-w-5xl mx-auto">
                     <div className="text-center">
                         <h1 className="text-3xl font-bold text-gray-800 sm:text-4xl dark:text-white">
-                            Contact us
+                            Contact with me.
                         </h1>
                         <p className="mt-1 text-gray-600 dark:text-gray-400">
-                            We'd love to talk about how we can help you.
+                            We'd love to talk about how we I help you.
                         </p>
                     </div>
 
@@ -69,7 +69,7 @@ export default function ContactPage({ auth, user, laravelVersion, phpVersion }) 
 
                                 <div className="mt-3 text-center">
                                     <p className="text-sm text-gray-500">
-                                        We'll get back to you in 1-2 business days.
+                                        I will get back to you in 1-2 business days.
                                     </p>
                                 </div>
                             </form>

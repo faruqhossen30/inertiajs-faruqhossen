@@ -12,7 +12,7 @@ function SkillPage() {
     return (
         <AppLayout >
             <div className="bg-white dark:bg-gray-700 p-4 my-3 border">
-                <span className="text-gray-800 dark:text-gray-400 text-lg font-bold">Sills</span>
+                <span className="text-gray-800 dark:text-gray-400 text-lg font-bold">Skills</span>
             </div>
             <div className="grid grid-cols-12 gap-5">
                 <div className="col-span-3 hidden md:block py-1">

@@ -7,7 +7,7 @@ export default function Header() {
     const { auth } = usePage().props
     return (
         <header className="flex flex-wrap sticky top-0 sm:justify-start sm:flex-nowrap z-50 w-full bg-white border-b border-gray-200 text-sm py-3 sm:py-0 dark:bg-gray-800 dark:border-gray-700">
-            <nav className="relative max-w-7xl w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8" aria-label="Global">
+            <nav className="relative container  w-full mx-auto sm:flex sm:items-center sm:justify-between px-3 lg:px-0" aria-label="Global">
                 <div className="flex items-center justify-between">
                     <Link href={route('homepage')} className="flex items-center space-x-2 text-xl font-semibold dark:text-white" aria-label="Brand">
                         <img src="./faruqhossen.jpg" className="h-10 rounded-full" alt="" />
@@ -34,7 +34,7 @@ export default function Header() {
                         <Link href={route('servicepage')} className="font-medium text-gray-800 hover:text-gray-400 sm:py-6 dark:text-gray-400 dark:hover:text-gray-500" >Service</Link>
                         <Link href={route('blogpage')} className="font-medium text-gray-500 hover:text-gray-400 sm:py-6 dark:text-gray-400 dark:hover:text-gray-500" >Blog</Link>
 
-                        <div className="hs-dropdown [--strategy:static] sm:[--strategy:fixed] [--adaptive:none] sm:[--trigger:hover] sm:py-4">
+                        {/* <div className="hs-dropdown [--strategy:static] sm:[--strategy:fixed] [--adaptive:none] sm:[--trigger:hover] sm:py-4">
                             <button type="button" className="flex items-center w-full text-gray-500 hover:text-gray-400 font-medium dark:text-gray-400 dark:hover:text-gray-500 ">
                                 Dropdown
                                 <svg className="ml-2 w-2.5 h-2.5 text-gray-600" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -74,8 +74,8 @@ export default function Header() {
                                     Team Account
                                 </a>
                             </div>
-                        </div>
-                        <Switcher />
+                        </div> */}
+
                         {
                             auth.user ?
                                 <Link href={route('logout')} method="post" as="button" className="flex items-center gap-x-2 font-medium text-gray-500 hover:text-blue-600 sm:border-l sm:border-gray-300 sm:my-6 sm:pl-6 dark:border-gray-700 dark:text-gray-400 dark:hover:text-blue-500" >
@@ -88,6 +88,7 @@ export default function Header() {
                                     Log in
                                 </Link>
                         }
+                        <Switcher />
 
                     </div>
                 </div>

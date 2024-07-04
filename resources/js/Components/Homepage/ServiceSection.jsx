@@ -29,12 +29,10 @@ export default function ServiceSection() {
                                 <FaCode className="h-6 w-6" />
                             </div>
                             <div className="flex-shrink-0">
-                                <h3 className="block text-lg font-semibold text-gray-800 dark:text-white">Web Design</h3>
+                                <h3 className="block text-lg font-semibold text-gray-800 dark:text-white">Laravel Framework</h3>
                             </div>
                         </div>
-                        <p className="text-gray-600 dark:text-gray-400">Create a brand and
-                            communicate Your
-                            value.</p>
+                        <p className="text-gray-600 dark:text-gray-400">Proficient in building scalable web applications using Laravel, focusing on MVC architecture and RESTful APIs.</p>
                     </div>
 
 
@@ -45,13 +43,10 @@ export default function ServiceSection() {
                                 <TbSeo className="h-6 w-6" />
                             </div>
                             <div className="flex-shrink-0">
-                                <h3 className="block text-lg font-semibold text-gray-800 dark:text-white">SEO</h3>
+                                <h3 className="block text-lg font-semibold text-gray-800 dark:text-white">PHP Programming</h3>
                             </div>
                         </div>
-                        <p className="text-gray-600 dark:text-gray-400">Fine new clients
-                            organically and grow
-                            a foundation for
-                            tomorrow.</p>
+                        <p className="text-gray-600 dark:text-gray-400">Extensive experience in server-side scripting with PHP, ensuring efficient and secure web application development.</p>
                     </div>
 
 
@@ -62,13 +57,10 @@ export default function ServiceSection() {
                                 <VideoCameraIcon className="h-6 w-6" />
                             </div>
                             <div className="flex-shrink-0">
-                                <h3 className="block text-lg font-semibold text-gray-800 dark:text-white">Video Production</h3>
+                                <h3 className="block text-lg font-semibold text-gray-800 dark:text-white">Shopify Development</h3>
                             </div>
                         </div>
-                        <p className="text-gray-600 dark:text-gray-400">Your brand story and it can
-                            be used for marketing,
-                            advertising, and training
-                            purposes.</p>
+                        <p className="text-gray-600 dark:text-gray-400">Skilled in customizing Shopify stores, creating themes, and developing custom apps to enhance e-commerce functionality.</p>
                     </div>
 
 
@@ -79,14 +71,10 @@ export default function ServiceSection() {
                                 <SiAdobe className="h-6 w-6" />
                             </div>
                             <div className="flex-shrink-0">
-                                <h3 className="block text-lg font-semibold text-gray-800 dark:text-white">Graphic Design</h3>
+                                <h3 className="block text-lg font-semibold text-gray-800 dark:text-white">Web Design</h3>
                             </div>
                         </div>
-                        <p className="text-gray-600 dark:text-gray-400">Create visually appealing and
-                            informative graphics
-                            for their websites, social media
-                            channels, and
-                            marketing materials.</p>
+                        <p className="text-gray-600 dark:text-gray-400">Skilled in creating mobile-friendly websites that adapt to different screen sizes, enhancing user experience across devices.</p>
                     </div>
 
 
@@ -97,14 +85,10 @@ export default function ServiceSection() {
                                 <IoPhonePortrait className="h-6 w-6" />
                             </div>
                             <div className="flex-shrink-0">
-                                <h3 className="block text-lg font-semibold text-gray-800 dark:text-white">Social Media  </h3>
+                                <h3 className="block text-lg font-semibold text-gray-800 dark:text-white">MySQL Database Management</h3>
                             </div>
                         </div>
-                        <p className="text-gray-600 dark:text-gray-400">Manage social media
-                            accounts, so that they
-                            can connect with
-                            their target audience and
-                            build relationships</p>
+                        <p className="text-gray-600 dark:text-gray-400">Adept at designing and managing MySQL databases to ensure data integrity and optimal performance.</p>
                     </div>
 
 
@@ -115,13 +99,10 @@ export default function ServiceSection() {
                                 <MdBrandingWatermark className="h-6 w-6" />
                             </div>
                             <div className="flex-shrink-0">
-                                <h3 className="block text-lg font-semibold text-gray-800 dark:text-white">Branding & Content</h3>
+                                <h3 className="block text-lg font-semibold text-gray-800 dark:text-white">API Integration</h3>
                             </div>
                         </div>
-                        <p className="text-gray-600 dark:text-gray-400">The process of creating a
-                            distinct identity for a business
-                            in the mind of your target
-                            audience and consumers.</p>
+                        <p className="text-gray-600 dark:text-gray-400">Experienced in integrating third-party APIs, enabling seamless connectivity between different services and applications.</p>
                     </div>
                     <div className="w-full h-full bg-white shadow-lg rounded-lg p-5 dark:bg-slate-900">
                         <div className="flex items-center gap-x-4 mb-3">
@@ -129,13 +110,12 @@ export default function ServiceSection() {
                                 <FaBuilding className="h-6 w-6" />
                             </div>
                             <div className="flex-shrink-0">
-                                <h3 className="block text-lg font-semibold text-gray-800 dark:text-white">Branding & Content</h3>
+                                <h3 className="block text-lg font-semibold text-gray-800 dark:text-white">Version Control with Git</h3>
                             </div>
                         </div>
-                        <p className="text-gray-600 dark:text-gray-400">The process of creating a
-                            distinct identity for a business
-                            in the mind of your target
-                            audience and consumers.</p>
+                        <p className="text-gray-600 dark:text-gray-400">Proficient in using Git for version control, facilitating efficient collaboration and code management.
+
+</p>
                     </div>
                     <div className="w-full h-full bg-white shadow-lg rounded-lg p-5 dark:bg-slate-900">
                         <div className="flex items-center gap-x-4 mb-3">
@@ -143,13 +123,10 @@ export default function ServiceSection() {
                                 <ServerStackIcon className="h-6 w-6" />
                             </div>
                             <div className="flex-shrink-0">
-                                <h3 className="block text-lg font-semibold text-gray-800 dark:text-white">Software</h3>
+                                <h3 className="block text-lg font-semibold text-gray-800 dark:text-white">Problem-Solving</h3>
                             </div>
                         </div>
-                        <p className="text-gray-600 dark:text-gray-400">activity concerned with creating,
-                            establishing, implementing
-                            and designing computer
-                            programs.</p>
+                        <p className="text-gray-600 dark:text-gray-400">Strong analytical skills for troubleshooting issues and optimizing code for better performance and scalability.</p>
                     </div>
                     <div className="w-full h-full bg-white shadow-lg rounded-lg p-5 dark:bg-slate-900">
                         <div className="flex items-center gap-x-4 mb-3">
@@ -157,13 +134,10 @@ export default function ServiceSection() {
                                 <ServerStackIcon className="h-6 w-6" />
                             </div>
                             <div className="flex-shrink-0">
-                                <h3 className="block text-lg font-semibold text-gray-800 dark:text-white">App</h3>
+                                <h3 className="block text-lg font-semibold text-gray-800 dark:text-white">Project Management</h3>
                             </div>
                         </div>
-                        <p className="text-gray-600 dark:text-gray-400">All techniques and strategies
-                            that can help you communicate
-                            about your app to your
-                            target audience.</p>
+                        <p className="text-gray-600 dark:text-gray-400">Effective in managing projects from conception to deployment, ensuring timely delivery and adherence to client requirements.</p>
                     </div>
 
                 </div>

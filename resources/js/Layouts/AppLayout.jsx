@@ -7,7 +7,7 @@ export default function AppLayout({ children }) {
     return (
         <>
             <Header />
-            <div className="max-w-7xl mx-auto">
+            <div className="container mx-auto">
             {children}
             </div>
             <Footer />
