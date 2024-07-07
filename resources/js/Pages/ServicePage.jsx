@@ -1,10 +1,5 @@
 import AppLayout from '@/Layouts/AppLayout';
-import { Link, Head } from '@inertiajs/react';
-import Dropdown from '@/Components/Dropdown';
-import Slider from '@/Components/Slider';
-import HeroSection from '@/Components/Homepage/HeroSection';
-import ServiceSection from '@/Components/Homepage/ServiceSection';
-import FeatureStatus from '@/Components/Homepage/FeatureStatus';
+import { Head } from '@inertiajs/react';
 import { CodeBracketIcon, HomeIcon, PencilIcon, StarIcon } from '@heroicons/react/24/outline';
 import Service from '@/Components/Frontend/Service/Service';
 

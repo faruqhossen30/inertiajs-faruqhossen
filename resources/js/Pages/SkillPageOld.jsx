@@ -1,7 +1,6 @@
 import AppLayout from '@/Layouts/AppLayout'
 import { Tab } from '@headlessui/react'
 import { HomeIcon } from '@heroicons/react/24/solid'
-import React from 'react'
 import { useState } from 'react'
 
 function SkillPage() {

@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function InputLabel({ labelFor,isRequired=false }) {
     return (
         <label htmlFor={labelFor} className="block text-sm font-medium dark:text-white capitalize py-2">

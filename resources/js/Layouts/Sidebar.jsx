@@ -1,4 +1,3 @@
-import React from 'react'
 import { CircleStackIcon, CogIcon, HomeIcon, PowerIcon } from '@heroicons/react/24/solid'
 import { Link } from '@inertiajs/react'
 

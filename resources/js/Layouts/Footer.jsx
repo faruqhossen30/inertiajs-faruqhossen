@@ -1,8 +1,6 @@
-import { Menu } from '@headlessui/react'
-import { HomeModernIcon, UserCircleIcon, UsersIcon } from '@heroicons/react/24/outline'
+import { HomeModernIcon, UserCircleIcon } from '@heroicons/react/24/outline'
 import { BanknotesIcon, ClipboardIcon, HomeIcon, UserIcon, WalletIcon } from '@heroicons/react/24/solid'
 import { Link } from '@inertiajs/react'
-import React from 'react'
 
 export default function Footer({ auth }) {
     return (

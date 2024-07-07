@@ -1,7 +1,6 @@
 import Navbar from '@/Components/Dashboard/Navbar';
 
 import Sidebar from '@/Components/Dashboard/Sidebar';
-import { useState } from 'react';
 
 export default function Authenticated({ user, header, children }) {
     return (

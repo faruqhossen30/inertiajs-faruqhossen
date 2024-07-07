@@ -1,5 +1,3 @@
-import { PuzzlePieceIcon, UserIcon } from '@heroicons/react/24/outline';
-import { TagIcon } from '@heroicons/react/24/solid';
 import { Link } from '@inertiajs/react';
 
 export default function Sidebar() {

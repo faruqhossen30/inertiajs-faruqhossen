@@ -1,5 +1,4 @@
 import { HomeIcon, MoonIcon } from '@heroicons/react/24/solid'
-import React from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { Fragment, useEffect, useRef, useState } from 'react'
 import { ChevronDownIcon, ListBulletIcon } from '@heroicons/react/20/solid'

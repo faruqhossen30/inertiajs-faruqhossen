@@ -1,9 +1,4 @@
 import { CircleStackIcon, CodeBracketIcon, MagnifyingGlassCircleIcon, ServerIcon, ServerStackIcon } from '@heroicons/react/24/outline'
-import { TbSeo } from "react-icons/tb";
-import { MdPreview } from "react-icons/md";
-import { TbHttpOptions } from "react-icons/tb";
-import { GiArchiveResearch } from "react-icons/gi";
-import React from 'react'
 
 export default function Feature() {
     return (

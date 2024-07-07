@@ -1,5 +1,4 @@
-import { HomeIcon, UserIcon } from '@heroicons/react/24/solid'
-import React from 'react'
+import { UserIcon } from '@heroicons/react/24/solid'
 
 export default function CardDashboard() {
     return (

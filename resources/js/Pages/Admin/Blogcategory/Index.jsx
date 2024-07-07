@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function Index() {
   return (
     <div className="bg-white dark:bg-gray-800 dark:text-slate-400 p-2">

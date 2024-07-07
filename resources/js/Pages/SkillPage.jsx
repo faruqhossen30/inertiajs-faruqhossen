@@ -1,11 +1,7 @@
-import Service from '@/Components/Frontend/Service/Service'
 import SkillComponent from '@/Components/Frontend/SkillComponent'
 import AppLayout from '@/Layouts/AppLayout'
-import { Tab } from '@headlessui/react'
 import { PencilIcon } from '@heroicons/react/24/outline'
 import { CodeBracketIcon, HomeIcon } from '@heroicons/react/24/solid'
-import React from 'react'
-import { useState } from 'react'
 
 function SkillPage() {
 

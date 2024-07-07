@@ -1,6 +1,5 @@
 import { ArrowRightIcon } from '@heroicons/react/24/outline'
 import { Link } from '@inertiajs/react'
-import React from 'react'
 
 export default function HeroSection() {
     return (

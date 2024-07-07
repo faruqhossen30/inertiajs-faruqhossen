@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function TH({title}) {
     return (
         <th scope="col" className="px-1 py-2 text-left">

@@ -1,6 +1,4 @@
 import { Link } from '@inertiajs/react'
-import React from 'react'
-
 
 const Pagination = ({ pagination, links = [], meta = null }) => {
     return (

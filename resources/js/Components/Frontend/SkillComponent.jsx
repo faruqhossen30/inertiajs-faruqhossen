@@ -1,5 +1,3 @@
-import React from 'react'
-
 function SkillComponent() {
     return (
         <div className="col-span-4 border rounded-lg shadow-lg p-5">

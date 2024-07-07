@@ -5,7 +5,6 @@ import { SiAdobe } from "react-icons/si";
 import { IoPhonePortrait } from "react-icons/io5";
 import { MdBrandingWatermark } from "react-icons/md";
 import { FaBuilding } from "react-icons/fa";
-import React from 'react'
 
 export default function ServiceSection() {
     return (

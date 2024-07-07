@@ -1,5 +1,5 @@
 
-import { Head, useForm } from '@inertiajs/react';
+import { useForm } from '@inertiajs/react';
 import BreadcumComponent from '@/Components/Dashboard/BreadcumComponent';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import InputLabel from '@/Components/Form/InputLabel';

@@ -1,5 +1,5 @@
 
-import { Head, useForm } from '@inertiajs/react';
+import {  useForm } from '@inertiajs/react';
 import BreadcumComponent from '@/Components/Dashboard/BreadcumComponent';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import InputLabel from '@/Components/Form/InputLabel';
@@ -7,8 +7,6 @@ import Input from '@/Components/Form/Input';
 import SubmitButton from '@/Components/Form/SubmitButton';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import ReactQuill from 'react-quill';
-import { useState } from 'react';
 import 'react-quill/dist/quill.snow.css';
 
 
@@ -21,8 +19,6 @@ export default function Create({ auth, packages }) {
         package: [],
         status: 1,
     });
-
-    const [value, setValue] = useState('');
 
     function submit(e) {
         e.preventDefault()
