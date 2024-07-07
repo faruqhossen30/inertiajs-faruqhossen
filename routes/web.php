@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\GoogleauthController;
 use App\Http\Controllers\BlogpageController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PortfolioPageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServicepageController;
 use App\Http\Controllers\SkillpageController;
@@ -36,6 +37,9 @@ Route::get('services', [ServicepageController::class, 'index'])->name('servicepa
 Route::get('service/{slug}', [ServicepageController::class, 'SingleService'])->name('single.service');
 Route::get('service', [ServicepageController::class, 'index'])->name('servicepage');
 Route::get('blogs', [BlogpageController::class, 'index'])->name('blogpage');
+Route::get('portfolio', [PortfolioPageController::class, 'index'])->name('portfoliopage');
+
+
 Route::get('auth/google', [GoogleauthController::class, 'redirect'])->name('google-auth');
 Route::get('auth/google/call-back', [GoogleauthController::class, 'callbackGoogle']);
 

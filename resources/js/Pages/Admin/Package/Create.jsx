@@ -51,7 +51,7 @@ export default function Create({ auth }) {
                             {/* <div>
                                 <InputLabel isRequired={true} labelFor="Description" />
                                 <textarea id="description" type="file" name="description" placeholder="description_code" onChange={(e) => setData('description', e.target.value)}
-                                class="border py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"></textarea>
+                                className="border py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"></textarea>
                                 <p className="text-sm text-red-600 mt-2">{errors.description}</p>
                             </div> */}
 
