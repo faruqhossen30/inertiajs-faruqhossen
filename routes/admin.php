@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\ServiceController;
 
 use App\Http\Controllers\Admin\Blog\BlogcategoryController;
 use App\Http\Controllers\Admin\PackageController;
-use App\Http\Controllers\Admin\PakageController;
+use App\Http\Controllers\Admin\PortfolioController;
 use App\Http\Controllers\Admin\SkillController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +25,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function (
     Route::resource('category', CategoryController::class);
     Route::resource('skill', SkillController::class);
     Route::post('skill/{id}', [SkillController::class, 'update'])->name('skillupdate');
+    Route::resource('portfolio', PortfolioController::class);
     Route::resource('blogcategory', BlogcategoryController::class);
     Route::resource('package', PackageController::class);
     Route::get('user/list', [UserController::class,'index'])->name('users');

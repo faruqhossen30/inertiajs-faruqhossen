@@ -20,7 +20,7 @@ const Pagination = ({ pagination, links = [], meta = null }) => {
                     total)
                 </p>
                 <div>
-                    <span className="relative z-0 inline-flex rounded-md shadow-sm">
+                    <span className="relative z-0 inline-flex shadow-sm">
                         <span>
                             {links.map((link, index) => {
                                 const key = link.label + index

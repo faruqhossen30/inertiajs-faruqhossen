@@ -1,18 +1,22 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Package;
+use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Portfolio;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
-class PackageController extends Controller
+class PortfolioController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $portfolios = Portfolio::paginate(10);
+        return Inertia::render('Admin/Portfolio/Index', ['portfolios' => $portfolios]);
     }
 
     /**
@@ -20,7 +24,8 @@ class PackageController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::get();
+        return Inertia::render('Admin/Portfolio/Create', ['categories' => $categories]);
     }
 
     /**
@@ -34,7 +39,7 @@ class PackageController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Package $package)
+    public function show(string $id)
     {
         //
     }
@@ -42,7 +47,7 @@ class PackageController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Package $package)
+    public function edit(string $id)
     {
         //
     }
@@ -50,7 +55,7 @@ class PackageController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Package $package)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -58,7 +63,7 @@ class PackageController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Package $package)
+    public function destroy(string $id)
     {
         //
     }

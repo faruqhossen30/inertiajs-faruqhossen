@@ -4,8 +4,8 @@ import { Link } from '@inertiajs/react'
 
 export default function Footer({ auth }) {
     return (
-        <>
-            <footer className='md:hidden grid grid-cols-5 border-t border-gray-200 dark:border-gray-600 text-sm text-white dark:text-gray-200 white bg-white dark:bg-gray-700 inset-x-0 bottom-0 fixed pt-2'>
+        <div className="dark:bg-slate-800">
+            <footer className='md:hidden grid grid-cols-5 border-t dark:border-t-gray-600 border-gray-600 dark:border-gray-700 text-sm text-white dark:text-gray-200 white bg-white dark:bg-gray-700 inset-x-0 bottom-0 fixed pt-2'>
                 <Link to='/' className='col-span-1 flex flex-col items-center'>
                     <HomeModernIcon className="h-5 hover:bg-gray-200 hover:dark:bg-gray-50 text-gray-500 dark:text-gray-400" />
                     <span>Home</span>
@@ -86,6 +86,6 @@ export default function Footer({ auth }) {
                 </div>
 
             </footer>
-        </>
+        </div>
     )
 }

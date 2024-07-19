@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\GoogleauthController;
 use App\Http\Controllers\BlogpageController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DataController;
 use App\Http\Controllers\PortfolioPageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServicepageController;
@@ -37,7 +38,7 @@ Route::get('services', [ServicepageController::class, 'index'])->name('servicepa
 Route::get('service/{slug}', [ServicepageController::class, 'SingleService'])->name('single.service');
 Route::get('service', [ServicepageController::class, 'index'])->name('servicepage');
 Route::get('blogs', [BlogpageController::class, 'index'])->name('blogpage');
-Route::get('portfolio', [PortfolioPageController::class, 'index'])->name('portfoliopage');
+Route::get('portfolios', [PortfolioPageController::class, 'index'])->name('portfoliopage');
 
 
 Route::get('auth/google', [GoogleauthController::class, 'redirect'])->name('google-auth');
@@ -47,6 +48,9 @@ Route::get('auth/google/call-back', [GoogleauthController::class, 'callbackGoogl
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+});
+Route::prefix('data')->group(function () {
+    Route::get('categories', [DataController::class, 'categories'])->name('data.categories');
 });
 
 require __DIR__.'/auth.php';

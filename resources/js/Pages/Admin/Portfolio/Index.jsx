@@ -7,22 +7,18 @@ import { Head, Link } from '@inertiajs/react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 
 
-export default function Index({ auth, skills }) {
+export default function Index({ auth, portfolios }) {
     return (
         <AuthenticatedLayout>
             <div className="flex justify-between items-center">
-                <BreadcumComponent pageOne="Categories" pageOneRoute="skill.index" />
-                <ButtonPlus routeName={route("skill.create")} />
+                <BreadcumComponent pageOne="Portfolios" pageOneRoute="portfolio.index" />
+                <ButtonPlus routeName={route("portfolio.create")} />
             </div>
-
-
 
             <div className="flex flex-col">
                 <div className="-m-1.5 overflow-x-auto">
                     <div className="p-1.5 min-w-full inline-block align-middle">
                         <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden dark:bg-slate-900 dark:border-gray-700">
-
-
                             {/* <!-- Table --> */}
                             <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                                 <thead className="bg-gray-50 dark:bg-slate-800">
@@ -75,7 +71,7 @@ export default function Index({ auth, skills }) {
                                 <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
 
                                     {
-                                        skills.data.map((item, index) => {
+                                        portfolios.data.map((item, index) => {
                                             return <tr key={index}>
                                                 <td className="h-px w-px whitespace-nowrap">
                                                     <div className="px-6 py-2">
@@ -116,6 +112,7 @@ export default function Index({ auth, skills }) {
                                                             <TrashIcon className="w-4 h-4 " />
                                                         </Link>
                                                     </div>
+
                                                 </td>
                                             </tr>
                                         })
@@ -126,7 +123,7 @@ export default function Index({ auth, skills }) {
                             </table>
                             {/* <!-- End Table --> */}
 
-                            <Pagination pagination={skills} links={skills.links} />
+                            <Pagination pagination={portfolios} links={portfolios.links} />
                         </div>
                     </div>
                 </div>
