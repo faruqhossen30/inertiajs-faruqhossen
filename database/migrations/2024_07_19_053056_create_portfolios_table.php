@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('portfolios', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->string('description',5000)->nullable();
             $table->string('thumbnail')->nullable();
             $table->unsignedBigInteger('author_id');

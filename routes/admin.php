@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\Blog\BlogcategoryController;
 use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\PortfolioController;
 use App\Http\Controllers\Admin\SkillController;
+use App\Http\Controllers\Admin\ToolController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -23,9 +24,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function (
     // Service
     Route::resource('service', ServiceController::class);
     Route::resource('category', CategoryController::class);
+
+    Route::resource('tools', ToolController::class);
+
     Route::resource('skill', SkillController::class);
     Route::post('skill/{id}', [SkillController::class, 'update'])->name('skillupdate');
+
     Route::resource('portfolio', PortfolioController::class);
+    Route::post('portfolio/{id}', [PortfolioController::class, 'update'])->name('portfolioupdate');
+
     Route::resource('blogcategory', BlogcategoryController::class);
     Route::resource('package', PackageController::class);
     Route::get('user/list', [UserController::class,'index'])->name('users');

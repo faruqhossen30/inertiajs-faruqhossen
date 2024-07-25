@@ -22,7 +22,7 @@ export default function ServiceSection() {
             <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 items-center gap-6 md:gap-10">
 
-                    <div className="w-full h-full bg-white shadow-lg rounded-lg p-5 dark:bg-slate-900">
+                    <div className="w-full h-full bg-white shadow-lg rounded-lg p-5 dark:bg-slate-900 border dark:border-gray-700">
                         <div className="flex items-center gap-x-4 mb-3">
                             <div className="inline-flex justify-center items-center w-[62px] h-[62px] rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
                                 <FaCode className="h-6 w-6" />
@@ -36,7 +36,7 @@ export default function ServiceSection() {
 
 
 
-                    <div className="w-full h-full bg-white shadow-lg rounded-lg p-5 dark:bg-slate-900">
+                    <div className="w-full h-full bg-white shadow-lg rounded-lg p-5 dark:bg-slate-900 border dark:border-gray-700">
                         <div className="flex items-center gap-x-4 mb-3">
                             <div className="inline-flex justify-center items-center w-[62px] h-[62px] rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
                                 <TbSeo className="h-6 w-6" />
@@ -50,7 +50,7 @@ export default function ServiceSection() {
 
 
 
-                    <div className="w-full h-full bg-white shadow-lg rounded-lg p-5 dark:bg-slate-900">
+                    <div className="w-full h-full bg-white shadow-lg rounded-lg p-5 dark:bg-slate-900 border dark:border-gray-700">
                         <div className="flex items-center gap-x-4 mb-3">
                             <div className="inline-flex justify-center items-center w-[62px] h-[62px] rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
                                 <VideoCameraIcon className="h-6 w-6" />
@@ -64,7 +64,7 @@ export default function ServiceSection() {
 
 
 
-                    <div className="w-full h-full bg-white shadow-lg rounded-lg p-5 dark:bg-slate-900">
+                    <div className="w-full h-full bg-white shadow-lg rounded-lg p-5 dark:bg-slate-900 border dark:border-gray-700">
                         <div className="flex items-center gap-x-4 mb-3">
                             <div className="inline-flex justify-center items-center w-[62px] h-[62px] rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
                                 <SiAdobe className="h-6 w-6" />
@@ -78,7 +78,7 @@ export default function ServiceSection() {
 
 
 
-                    <div className="w-full h-full bg-white shadow-lg rounded-lg p-5 dark:bg-slate-900">
+                    <div className="w-full h-full bg-white shadow-lg rounded-lg p-5 dark:bg-slate-900 border dark:border-gray-700">
                         <div className="flex items-center gap-x-4 mb-3">
                             <div className="inline-flex justify-center items-center w-[62px] h-[62px] rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
                                 <IoPhonePortrait className="h-6 w-6" />
@@ -92,7 +92,7 @@ export default function ServiceSection() {
 
 
 
-                    <div className="w-full h-full bg-white shadow-lg rounded-lg p-5 dark:bg-slate-900">
+                    <div className="w-full h-full bg-white shadow-lg rounded-lg p-5 dark:bg-slate-900 border dark:border-gray-700">
                         <div className="flex items-center gap-x-4 mb-3">
                             <div className="inline-flex justify-center items-center w-[62px] h-[62px] rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
                                 <MdBrandingWatermark className="h-6 w-6" />
@@ -103,7 +103,7 @@ export default function ServiceSection() {
                         </div>
                         <p className="text-gray-600 dark:text-gray-400">Experienced in integrating third-party APIs, enabling seamless connectivity between different services and applications.</p>
                     </div>
-                    <div className="w-full h-full bg-white shadow-lg rounded-lg p-5 dark:bg-slate-900">
+                    <div className="w-full h-full bg-white shadow-lg rounded-lg p-5 dark:bg-slate-900 border dark:border-gray-700">
                         <div className="flex items-center gap-x-4 mb-3">
                             <div className="inline-flex justify-center items-center w-[62px] h-[62px] rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
                                 <FaBuilding className="h-6 w-6" />
@@ -116,7 +116,7 @@ export default function ServiceSection() {
 
 </p>
                     </div>
-                    <div className="w-full h-full bg-white shadow-lg rounded-lg p-5 dark:bg-slate-900">
+                    <div className="w-full h-full bg-white shadow-lg rounded-lg p-5 dark:bg-slate-900 border dark:border-gray-700">
                         <div className="flex items-center gap-x-4 mb-3">
                             <div className="inline-flex justify-center items-center w-[62px] h-[62px] rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
                                 <ServerStackIcon className="h-6 w-6" />
@@ -127,7 +127,7 @@ export default function ServiceSection() {
                         </div>
                         <p className="text-gray-600 dark:text-gray-400">Strong analytical skills for troubleshooting issues and optimizing code for better performance and scalability.</p>
                     </div>
-                    <div className="w-full h-full bg-white shadow-lg rounded-lg p-5 dark:bg-slate-900">
+                    <div className="w-full h-full bg-white shadow-lg rounded-lg p-5 dark:bg-slate-900 border dark:border-gray-700">
                         <div className="flex items-center gap-x-4 mb-3">
                             <div className="inline-flex justify-center items-center w-[62px] h-[62px] rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
                                 <ServerStackIcon className="h-6 w-6" />

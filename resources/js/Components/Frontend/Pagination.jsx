@@ -1,6 +1,8 @@
 import { Link, usePage } from '@inertiajs/react'
 
 const Pagination = ({ pagination, links = [], meta = null }) => {
+    const { props } = usePage();
+    const cat = props.request.category ?? null;
     return (
         <div className="px-2">
             <div className="my-2 sm:flex sm:flex-1 sm:items-center lg:justify-between">
@@ -53,7 +55,7 @@ const Pagination = ({ pagination, links = [], meta = null }) => {
                                 return (
                                     <span key={key}>
                                         <Link
-                                            href={link.url}
+                                            href={cat ? link.url + ('&category='+cat) : link.url}
                                             preserveState={true}
                                             className="relative -ml-px inline-flex items-center border border-gray-200 dark:border-gray-700  px-4 py-1 text-sm font-medium leading-5 text-gray-700 hover:bg-gray-300"
                                             dangerouslySetInnerHTML={{

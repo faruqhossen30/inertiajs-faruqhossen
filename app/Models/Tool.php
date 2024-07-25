@@ -5,11 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PortfolioCategory extends Model
+class Tool extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        'portfolio_id',
-        'category_id'
+        'name',
+        'slug',
+        'thumbnail',
+        'category_id',
+        'author_id',
+        'status'
     ];
 }

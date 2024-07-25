@@ -10,7 +10,7 @@ export default function Homepage({ auth, user, laravelVersion, phpVersion }) {
 
     return (
         <AppLayout>
-            <Head title="Homepage" />
+            <Head title="Home" />
             <HeroSection />
             <ServiceSection />
             <FeatureStatus />

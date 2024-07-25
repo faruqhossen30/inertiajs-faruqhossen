@@ -1,16 +1,14 @@
 import CategorySidebar from '@/Components/Frontend/CategorySidebar';
+import Pagination from '@/Components/Frontend/Pagination';
 import SkillComponent from '@/Components/Frontend/SkillComponent'
-import Pagination from '@/Components/Table/Pagination';
 import AppLayout from '@/Layouts/AppLayout'
-import { PencilIcon } from '@heroicons/react/24/outline'
-import { CodeBracketIcon, HomeIcon } from '@heroicons/react/24/solid'
+import { Head } from '@inertiajs/react';
 
 function SkillPage({ skills }) {
-    console.log(skills);
-
     return (
         <AppLayout >
-            <div className="bg-white dark:bg-gray-800 p-4 my-3 border border-gray-200 rounded-md">
+            <Head title="Skills" />
+            <div className="bg-white dark:bg-gray-800 p-4 my-3 border border-gray-200 dark:border-gray-700 rounded-md">
                 <span className="text-gray-600 dark:text-gray-400 text-lg font-bold">Skills</span>
             </div>
             <div className="grid grid-cols-12 gap-5">

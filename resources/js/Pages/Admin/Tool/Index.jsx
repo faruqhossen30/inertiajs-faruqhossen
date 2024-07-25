@@ -7,18 +7,20 @@ import { Head, Link } from '@inertiajs/react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 
 
-export default function Index({ auth, portfolios }) {
+export default function Index({tools }) {
     return (
         <AuthenticatedLayout>
             <div className="flex justify-between items-center">
-                <BreadcumComponent pageOne="Portfolios" pageOneRoute="portfolio.index" />
-                <ButtonPlus routeName={route("portfolio.create")} />
+                <BreadcumComponent pageOne="Tools" pageOneRoute="tools.index" />
+                <ButtonPlus routeName={route("tools.create")} />
             </div>
 
             <div className="flex flex-col">
                 <div className="-m-1.5 overflow-x-auto">
                     <div className="p-1.5 min-w-full inline-block align-middle">
                         <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden dark:bg-slate-900 dark:border-gray-700">
+
+
                             {/* <!-- Table --> */}
                             <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                                 <thead className="bg-gray-50 dark:bg-slate-800">
@@ -34,7 +36,7 @@ export default function Index({ auth, portfolios }) {
                                         <th scope="col" className="px-6 py-3 text-left">
                                             <div className="flex items-center gap-x-2">
                                                 <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                                                    Title
+                                                    Name
                                                 </span>
                                             </div>
                                         </th>
@@ -71,7 +73,7 @@ export default function Index({ auth, portfolios }) {
                                 <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
 
                                     {
-                                        portfolios.data.map((item, index) => {
+                                        tools.data.map((item, index) => {
                                             return <tr key={index}>
                                                 <td className="h-px w-px whitespace-nowrap">
                                                     <div className="px-6 py-2">
@@ -80,7 +82,7 @@ export default function Index({ auth, portfolios }) {
                                                 </td>
                                                 <td className="h-px w-px whitespace-nowrap">
                                                     <div className="px-6 py-2">
-                                                        <span className="text-sm text-gray-600 dark:text-gray-400">{item.title}</span>
+                                                        <span className="text-sm text-gray-600 dark:text-gray-400">{item.name}</span>
                                                     </div>
                                                 </td>
                                                 <td className="h-px w-px whitespace-nowrap">
@@ -101,14 +103,14 @@ export default function Index({ auth, portfolios }) {
                                                 </td>
                                                 <td className="h-px w-px whitespace-nowrap">
                                                     <div className="px-6 py-1.5 flex space-x-1">
-                                                        <Link href={route('portfolio.show', item.id)} className="border p-1 rounded-md dark:border-gray-700 text-gray-500">
+                                                        <Link href={route('tools.destroy', item.id)} method="Delete" as="button" className="border p-1 rounded-md dark:border-gray-700 text-gray-500">
                                                             <EyeIcon className="w-4 h-4" />
                                                         </Link>
 
-                                                        <Link href={route('portfolio.edit', item.id)} className="border p-1 rounded-md dark:border-gray-700 text-green-500">
+                                                        <Link href={route('tools.edit', item.id)} className="border p-1 rounded-md dark:border-gray-700 text-green-500">
                                                             <PencilIcon className="w-4 h-5" />
                                                         </Link>
-                                                        <Link href={route('portfolio.destroy', item.id)} method="Delete" as="button" className="border p-1 rounded-md dark:border-gray-700 text-red-500">
+                                                        <Link href={route('tools.destroy', item.id)} method="Delete" as="button" className="border p-1 rounded-md dark:border-gray-700 text-red-500">
                                                             <TrashIcon className="w-4 h-4 " />
                                                         </Link>
                                                     </div>
@@ -123,7 +125,7 @@ export default function Index({ auth, portfolios }) {
                             </table>
                             {/* <!-- End Table --> */}
 
-                            <Pagination pagination={portfolios} links={portfolios.links} />
+                            <Pagination pagination={tools} links={tools.links} />
                         </div>
                     </div>
                 </div>

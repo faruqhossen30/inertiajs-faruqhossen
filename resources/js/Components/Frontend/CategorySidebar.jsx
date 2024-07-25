@@ -14,7 +14,7 @@ function CategorySidebar() {
 
     }, []);
     return (
-        <ul className="max-w-xs flex flex-col divide-y divide-gray-200 dark:divide-gray-700 bg-white dark:bg-gray-800 mb-4 rounded-md border dark:border-gray-700">
+        <ul className="flex flex-col divide-y divide-gray-200 dark:divide-gray-700 bg-white dark:bg-gray-800 mb-4 rounded-md border dark:border-gray-700">
 
             <li className="inline-flex items-center gap-x-2 py-3 px-4 text-sm font-medium text-gray-800 dark:text-gray-400">
                 <span className="text-lg font-bold">All Category</span>
@@ -22,7 +22,7 @@ function CategorySidebar() {
 
             {Categories.map((category, index) => {
                 return <li key={index} className="inline-flex items-center gap-x-2 py-3 px-4 text-sm font-medium text-gray-800 dark:text-gray-400">
-                    <Link href={route('skillpage',{category:category.id})} className="inline-flex space-x-2">
+                    <Link href={'?category='+category.id} className="inline-flex space-x-2">
                         <HomeIcon className="w-4 h-4" />
                         <span>{category.name}</span>
                     </Link>

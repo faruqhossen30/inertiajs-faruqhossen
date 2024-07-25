@@ -21,7 +21,6 @@ class SkillpageController extends Controller
             return $query->where('category_id', $category);
         })->paginate();
 
-
-        return Inertia::render('SkillPage', ['skills' => $skills]);
+        return Inertia::render('SkillPage', ['skills' => $skills,'request'=>$_GET]);
     }
 }

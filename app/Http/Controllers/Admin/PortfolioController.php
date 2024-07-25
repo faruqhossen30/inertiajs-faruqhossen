@@ -5,7 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Portfolio;
+use App\Models\PortfolioCategory;
+use App\Models\Tool;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Inertia\Inertia;
 
 class PortfolioController extends Controller
@@ -25,7 +31,8 @@ class PortfolioController extends Controller
     public function create()
     {
         $categories = Category::get();
-        return Inertia::render('Admin/Portfolio/Create', ['categories' => $categories]);
+        $tools = Tool::get();
+        return Inertia::render('Admin/Portfolio/Create', ['categories' => $categories, 'tools' => $tools]);
     }
 
     /**
@@ -33,7 +40,36 @@ class PortfolioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+
+        DB::beginTransaction();
+        try {
+            $data = [
+                'title' => $request->title,
+                'slug' => Str::slug($request->title),
+                'description' => $request->description,
+                'author_id' => Auth::user()->id,
+                'status' => $request->status
+            ];
+
+            if ($request->file('thumbnail')) {
+                $file_name = $request->file('thumbnail')->store('portfolio');
+                $data['thumbnail'] = $file_name;
+            }
+
+            $portfolio = Portfolio::create($data);
+            $portfolio->categories()->attach($request->category_ids);
+            $portfolio->tools()->attach($request->tool_ids);
+
+            DB::commit();
+            return to_route('portfolio.index');
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            dd($th);
+        }
     }
 
     /**
@@ -41,7 +77,8 @@ class PortfolioController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $portfolio = Portfolio::with('categories')->firstWhere('id', $id);
+        return $portfolio;
     }
 
     /**
@@ -49,7 +86,10 @@ class PortfolioController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $categories = Category::get();
+        $portfolio = Portfolio::firstWhere('id', $id);
+
+        return Inertia::render('Admin/Portfolio/Edit', ['portfolio' => $portfolio, 'categories' => $categories]);
     }
 
     /**
@@ -57,7 +97,47 @@ class PortfolioController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+
+        DB::beginTransaction();
+        try {
+            $data = [
+                'title' => $request->title,
+                'slug' => Str::slug($request->title),
+                'description' => $request->description,
+                'status' => $request->status
+            ];
+
+            $portfolio = Portfolio::firstwhere('id', $id);
+
+            if ($request->file('thumbnail')) {
+                if ($portfolio->thumbnail != null && Storage::exists($portfolio->thumbnail)) {
+                    Storage::delete($portfolio->thumbnail);
+                }
+
+                $file_name = $request->file('thumbnail')->store('skill');
+                $data['thumbnail'] = $file_name;
+            }
+
+            if (!empty($request->category_ids)) {
+                $portfolio->categories()->detach();
+                $portfolio->categories()->attach($request->category_ids);
+            }
+
+            if (!empty($request->tool_ids)) {
+                $portfolio->tools()->detach();
+                $portfolio->tools()->attach($request->tool_ids);
+            }
+
+            $portfolio->update($data);
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+
+        return to_route('portfolio.index');
     }
 
     /**
@@ -65,6 +145,12 @@ class PortfolioController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $portfolio = Portfolio::firstwhere('id', $id);
+
+        if ($portfolio->thumbnail != null && Storage::exists($portfolio->thumbnail)) {
+            Storage::delete($portfolio->thumbnail);
+        }
+        $portfolio->delete();
+        return redirect()->route('portfolio.index');
     }
 }

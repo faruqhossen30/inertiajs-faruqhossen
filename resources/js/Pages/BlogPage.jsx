@@ -1,104 +1,66 @@
+import BlogComponent from '@/Components/Frontend/BlogComponent';
+import Pagination from '@/Components/Frontend/Pagination';
 import AppLayout from '@/Layouts/AppLayout';
+import { Head, Link } from '@inertiajs/react';
 
-export default function BlogPage({ auth, user, laravelVersion, phpVersion }) {
+export default function BlogPage({ blogs }) {
 
     return (
         <AppLayout>
+            <Head title="Blogs" />
+            <div className="container">
+                <div className=" bg-white dark:bg-slate-800 flex justify-between border-b dark:border-gray-700">
+                    <div className="flex items-center  space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            className="w-6 h-6 text-gray-800 dark:text-gray-400">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                        </svg>
 
-            <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+                        <svg className="w-4 h-4 text-gray-800 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9.143 4H4.857A.857.857 0 0 0 4 4.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 10 9.143V4.857A.857.857 0 0 0 9.143 4Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 20 9.143V4.857A.857.857 0 0 0 19.143 4Zm-10 10H4.857a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286A.857.857 0 0 0 9.143 14Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286a.857.857 0 0 0-.857-.857Z" />
+                        </svg>
 
-                <div className="grid lg:grid-cols-2 lg:gap-y-16 gap-10">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            className="w-4 h-4 text-gray-800 dark:text-gray-400 bi bi-grid-3x3-gap" viewBox="0 0 16 16">
+                            <path
+                                d="M4 2v2H2V2zm1 12v-2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1m0-5V7a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1m0-5V2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1m5 10v-2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1m0-5V7a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1m0-5V2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1M9 2v2H7V2zm5 0v2h-2V2zM4 7v2H2V7zm5 0v2H7V7zm5 0h-2v2h2zM4 12v2H2v-2zm5 0v2H7v-2zm5 0v2h-2v-2zM12 1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm-1 6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1zm1 4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1z" />
+                        </svg>
+                    </div>
 
-                    <a className="group rounded-xl overflow-hidden" href="#">
-                        <div className="sm:flex">
-                            <div className="flex-shrink-0 relative rounded-xl overflow-hidden w-full sm:w-56 h-44">
-                                <img className="group-hover:scale-105 transition-transform duration-500 ease-in-out size-full absolute top-0 start-0 object-cover rounded-xl" src="https://images.unsplash.com/photo-1540575861501-7cf05a4b125a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="Image Description" />
-                            </div>
-
-                            <div className="grow mt-4 sm:mt-0 sm:ms-6 px-4 sm:px-0">
-                                <h3 className="text-xl font-semibold text-gray-800 group-hover:text-gray-600 dark:text-neutral-300 dark:group-hover:text-white">
-                                    Studio by Preline
-                                </h3>
-                                <p className="mt-3 text-gray-600 dark:text-neutral-400">
-                                    Produce professional, reliable streams easily leveraging Preline's innovative broadcast studio
-                                </p>
-                                <p className="mt-4 inline-flex items-center gap-x-1 text-blue-600 decoration-2 hover:underline font-medium">
-                                    Read more
-                                    <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6" /></svg>
-                                </p>
-                            </div>
+                    <div className="flex space-x-2 py-3 ">
+                        <div className="flex items-center space-x-1">
+                            <label for="" className="text-gray-800 dark:text-gray-400">Show:</label>
+                            <select name="orderby"
+                                className="py-1 px-4 pe-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="30">30</option>
+                            </select>
                         </div>
-                    </a>
-
-
-
-                    <a className="group rounded-xl overflow-hidden" href="#">
-                        <div className="sm:flex">
-                            <div className="flex-shrink-0 relative rounded-xl overflow-hidden w-full sm:w-56 h-44">
-                                <img className="group-hover:scale-105 transition-transform duration-500 ease-in-out size-full absolute top-0 start-0 object-cover rounded-xl" src="https://images.unsplash.com/photo-1668906093328-99601a1aa584?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=986&q=80" alt="Image Description" />
-                            </div>
-
-                            <div className="grow mt-4 sm:mt-0 sm:ms-6 px-4 sm:px-0">
-                                <h3 className="text-xl font-semibold text-gray-800 group-hover:text-gray-600 dark:text-neutral-300 dark:group-hover:text-white">
-                                    Onsite
-                                </h3>
-                                <p className="mt-3 text-gray-600 dark:text-neutral-400">
-                                    Optimize your in-person experience with best-in-className capabilities like badge printing and lead retrieval
-                                </p>
-                                <p className="mt-4 inline-flex items-center gap-x-1 text-blue-600 decoration-2 hover:underline font-medium">
-                                    Read more
-                                    <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6" /></svg>
-                                </p>
-                            </div>
+                        <div className="flex items-center space-x-1">
+                            <label for="" className="text-gray-800 dark:text-gray-400">Sort:</label>
+                            <select name="sortby"
+                                className="py-1 px-4 pe-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
+                                <option value="">Default</option>
+                                <option value="asc">Low to Hith</option>
+                                <option value="desc">High to low</option>
+                            </select>
                         </div>
-                    </a>
+                    </div>
+                </div>
+                <div className="grid lg:grid-cols-2 lg:gap-y-16 gap-10 py-5">
+                    {
+                        blogs.data.map((blog, index) => {
+                            return <BlogComponent blog={blog} />
+                        })
+                    }
 
-
-
-                    <a className="group rounded-xl overflow-hidden" href="#">
-                        <div className="sm:flex">
-                            <div className="flex-shrink-0 relative rounded-xl overflow-hidden w-full sm:w-56 h-44">
-                                <img className="group-hover:scale-105 transition-transform duration-500 ease-in-out size-full absolute top-0 start-0 object-cover rounded-xl" src="https://images.unsplash.com/photo-1567016526105-22da7c13161a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80" alt="Image Description" />
-                            </div>
-
-                            <div className="grow mt-4 sm:mt-0 sm:ms-6 px-4 sm:px-0">
-                                <h3 className="text-xl font-semibold text-gray-800 group-hover:text-gray-600 dark:text-neutral-300 dark:group-hover:text-white">
-                                    The complete guide to OKRs
-                                </h3>
-                                <p className="mt-3 text-gray-600 dark:text-neutral-400">
-                                    How to make objectives and key results work for your company
-                                </p>
-                                <p className="mt-4 inline-flex items-center gap-x-1 text-blue-600 decoration-2 hover:underline font-medium">
-                                    Read more
-                                    <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6" /></svg>
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-
-
-
-                    <a className="group rounded-xl overflow-hidden" href="#">
-                        <div className="sm:flex">
-                            <div className="flex-shrink-0 relative rounded-xl overflow-hidden w-full sm:w-56 h-44">
-                                <img className="group-hover:scale-105 transition-transform duration-500 ease-in-out size-full absolute top-0 start-0 object-cover rounded-xl" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="Image Description" />
-                            </div>
-
-                            <div className="grow mt-4 sm:mt-0 sm:ms-6 px-4 sm:px-0">
-                                <h3 className="text-xl font-semibold text-gray-800 group-hover:text-gray-600 dark:text-neutral-300 dark:group-hover:text-white">
-                                    People program models
-                                </h3>
-                                <p className="mt-3 text-gray-600 dark:text-neutral-400">
-                                    Six approaches to bringing your People strategy to life
-                                </p>
-                                <p className="mt-4 inline-flex items-center gap-x-1 text-blue-600 decoration-2 hover:underline font-medium">
-                                    Read more
-                                    <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6" /></svg>
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-
+                </div>
+                <div className="py-10">
+                    <Pagination pagination={blogs} links={blogs.links} />
                 </div>
 
             </div>

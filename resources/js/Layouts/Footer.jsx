@@ -1,43 +1,43 @@
 import { HomeModernIcon, UserCircleIcon } from '@heroicons/react/24/outline'
-import { BanknotesIcon, ClipboardIcon, HomeIcon, UserIcon, WalletIcon } from '@heroicons/react/24/solid'
+import { BanknotesIcon, HomeIcon, UserIcon, WalletIcon } from '@heroicons/react/24/outline'
 import { Link } from '@inertiajs/react'
 
 export default function Footer({ auth }) {
     return (
-        <div className="dark:bg-slate-800">
-            <footer className='md:hidden grid grid-cols-5 border-t dark:border-t-gray-600 border-gray-600 dark:border-gray-700 text-sm text-white dark:text-gray-200 white bg-white dark:bg-gray-700 inset-x-0 bottom-0 fixed pt-2'>
-                <Link to='/' className='col-span-1 flex flex-col items-center'>
-                    <HomeModernIcon className="h-5 hover:bg-gray-200 hover:dark:bg-gray-50 text-gray-500 dark:text-gray-400" />
-                    <span>Home</span>
+        <div className="dark:bg-slate-800 border-t dark:border-t-gray-700">
+            <footer className='md:hidden grid grid-cols-5 border-t dark:border-t-gray-700 border-gray-600 text-sm text-white dark:text-gray-200 white bg-white dark:bg-gray-700 inset-x-0 bottom-0 fixed pt-2'>
+                <Link href={route('homepage')} className='col-span-1 flex flex-col items-center'>
+                    <HomeIcon className="h-5 text-gray-500 dark:text-gray-400" />
+                    <span className="text-gray-800 dark:text-gray-400">Home</span>
                 </Link>
                 <Link to='/profile' className='col-span-1 flex flex-col items-center'>
-                    <WalletIcon className="h-5 hover:bg-gray-200 hover:dark:bg-gray-50 text-gray-500 dark:text-gray-400" />
-                    <span>Wallet</span>
+                    <WalletIcon className="h-5 text-gray-500 dark:text-gray-400" />
+                    <span className="text-gray-800 dark:text-gray-400">Wallet</span>
                 </Link>
-                <Link to='/deposit' className='col-span-1 flex flex-col items-center'>
-                    <BanknotesIcon className="h-5 hover:bg-gray-200 hover:dark:bg-gray-50 text-gray-500 dark:text-gray-400" />
-                    <span>Deposite</span>
+                <Link href={route('portfoliopage')} className='col-span-1 flex flex-col items-center'>
+                    <BanknotesIcon className="h-5 text-gray-500 dark:text-gray-400" />
+                    <span className="text-gray-800 dark:text-gray-400">Portfolios</span>
                 </Link>
-                <Link to='/statement' className='col-span-1 flex flex-col items-center'>
-                    <ClipboardIcon className="h-5 hover:bg-gray-200 hover:dark:bg-gray-50 text-gray-500 dark:text-gray-400" />
-                    <span>Statement</span>
+                <Link href={route('contact')} className='col-span-1 flex flex-col items-center'>
+                    <UserIcon className="h-5 text-gray-500 dark:text-gray-400" />
+                    <span className="text-gray-800 dark:text-gray-400">Contact</span>
                 </Link>
 
                 <div className="hs-dropdown relative inline-flex">
 
                     <button id="hs-dropdown-with-icons" type="button" className="hs-dropdown-toggle pl-2 inline-flex justify-center items-center  align-middle  transition-all col-span-1 flex-col">
-                        <UserCircleIcon className="h-5 hover:bg-gray-200 hover:dark:bg-gray-50 text-gray-500 dark:text-gray-400" />
+                        <UserCircleIcon className="h-5 text-gray-500 dark:text-gray-400" />
                         <span>Account</span>
                     </button>
 
                     <div className="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden bg-white shadow-md rounded-lg p-2 mt-2 divide-y divide-gray-200 dark:bg-gray-800 dark:border dark:border-gray-700 dark:divide-gray-700" aria-labelledby="hs-dropdown-with-icons">
                         <div className="py-2 first:pt-0 last:pb-0">
                             <a className="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300" href="#">
-                                <UserIcon className="h-5 text-gray-800 hover:dark:bg-gray-50  dark:text-gray-400" />
+                                <UserIcon className="h-5 text-gray-800  dark:text-gray-400" />
                                 Login
                             </a>
                             <a className="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300" href="#">
-                                <UserIcon className="h-5 text-gray-800 hover:dark:bg-gray-50 dark:text-gray-400" />
+                                <UserIcon className="h-5 text-gray-800 dark:text-gray-400" />
                                 Register
                             </a>
                         </div>
@@ -45,8 +45,7 @@ export default function Footer({ auth }) {
                 </div>
             </footer>
 
-            <hr />
-            <footer className="mt-auto w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
+            <footer className="mt-auto dark:border-t-gray-700 hidden lg:block w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
 
                 <div className="text-center">
                     <Link href={route('homepage')} className="flex items-center justify-center space-x-2 text-xl font-semibold dark:text-white" aria-label="Brand">
