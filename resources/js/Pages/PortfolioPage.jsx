@@ -1,14 +1,18 @@
 import CategorySidebar from '@/Components/Frontend/CategorySidebar';
+import Pagination from '@/Components/Frontend/Pagination';
 import PortfolioComponent from '@/Components/Frontend/PortfolioComponent';
 import SkillComponent from '@/Components/Frontend/SkillComponent';
 import AppLayout from '@/Layouts/AppLayout';
 import { CodeBracketIcon, HomeIcon, PencilIcon } from '@heroicons/react/24/outline';
-import { Head } from '@inertiajs/react';
+import { Head, router } from '@inertiajs/react';
 
 export default function PortfolioPage({ portfolios }) {
+    // const route = router;
+    const currentRoute = route().current()
+    const params = route().params;
     return (
         <AppLayout>
-            <Head title="Portfolio" />
+            <Head title="Portfolios" />
 
             <div className="bg-white dark:bg-gray-800 p-4 my-3 border border-gray-200 dark:border-gray-700 rounded-md">
                 <span className="text-gray-600 dark:text-gray-400 text-lg font-bold">Portfolio</span>
@@ -42,17 +46,38 @@ export default function PortfolioPage({ portfolios }) {
 
                         <div className="flex space-x-2 py-3 ">
                             <div className="flex items-center space-x-1">
-                                <label for="" className="text-gray-800 dark:text-gray-400">Order:</label>
+                                <label for="" className="text-gray-800 dark:text-gray-400">Show:</label>
                                 <select name="orderby"
+                                    onChange={(e) => {
+                                        return router.get(route('portfoliopage', params),
+                                            {
+                                                show: e.target.value
+                                            },
+                                            {
+                                                preserveState: true,
+                                                replace: true
+                                            }
+                                        )
+                                    }}
                                     className="py-1 px-4 pe-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
-                                    <option value="">Sort by:</option>
-                                    <option value="asc">Latest</option>
-                                    <option value="desc">Oldest</option>
+                                    <option value="2">2</option>
+                                    <option value="4">4</option>
                                 </select>
                             </div>
                             <div className="flex items-center space-x-1">
                                 <label for="" className="text-gray-800 dark:text-gray-400">Sort:</label>
                                 <select name="sortby"
+                                    onChange={(e) => {
+                                        return router.get(route('portfoliopage', params),
+                                            {
+                                                orderby: e.target.value
+                                            },
+                                            {
+                                                preserveState: true,
+                                                replace: true
+                                            }
+                                        )
+                                    }}
                                     className="py-1 px-4 pe-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
                                     <option value="">Price:</option>
                                     <option value="asc">Low to Hith</option>
@@ -65,6 +90,9 @@ export default function PortfolioPage({ portfolios }) {
                         {portfolios.data.map((portfolio, index) => {
                             return <PortfolioComponent key={index} portfolio={portfolio} />
                         })}
+                    </div>
+                    <div className="py-10">
+                        <Pagination pagination={portfolios} links={portfolios.links} />
                     </div>
                 </div>
             </div>

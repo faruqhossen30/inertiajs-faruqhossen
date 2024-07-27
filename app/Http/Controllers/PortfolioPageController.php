@@ -16,10 +16,13 @@ class PortfolioPageController extends Controller
             $category = $_GET['category'];
         }
 
-        // return $category;
-        $portfolios = Portfolio::paginate();
+        $portfolios = Portfolio::when($category, function ($query) use ($category) {
+            return $query->whereHas('categories', function ($q) use ($category) {
+                return $q->where('category_id', $category);
+            });
+        })->paginate(6);
 
-        return Inertia::render('PortfolioPage', ['portfolios' => $portfolios]);
+        return Inertia::render('PortfolioPage', ['portfolios' => $portfolios, 'request' => $_GET]);
     }
     function singlePortfolio(string $slug): Response
     {

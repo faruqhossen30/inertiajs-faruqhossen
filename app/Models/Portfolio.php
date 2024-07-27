@@ -22,6 +22,7 @@ class Portfolio extends Model
     public function categories(){
         return $this->belongsToMany(Category::class,'portfolio_categories');
     }
+
     public function tools(){
         return $this->belongsToMany(Tool::class,'portfolio_tools');
     }
