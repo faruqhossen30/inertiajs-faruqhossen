@@ -16,7 +16,26 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services = Service::paginate(10);
+
+        $services = Service::query();
+
+        $show = null;
+        if (isset($_GET['show']) && $_GET['show']) {
+            $show = $_GET['show'];
+        }
+
+        if (isset($_GET['search']) && $_GET['search']) {
+            $search = $_GET['search'];
+            $services = $services->where('name', 'like', '%' . $search . '%');
+        }
+
+        if (isset($_GET['orderby']) && $_GET['orderby']) {
+            $orderby = $_GET['orderby'];
+            $services = $services->orderBy('created_at', $orderby);
+        }
+
+        $services = $services->paginate($show ?? 10)->appends($_GET);
+        // $services = Service::paginate(10);
         return Inertia::render('Admin/Service/Index',['services'=> $services]);
     }
 
@@ -34,11 +53,11 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request->all();
-        $request->validate([
-            'title'=> 'required',
-            'short_description'=> 'required',
-        ]);
+        return $request->all();
+        // $request->validate([
+        //     'title'=> 'required',
+        //     'short_description'=> 'required',
+        // ]);
 
         $data=[
             'title'=> $request->title,

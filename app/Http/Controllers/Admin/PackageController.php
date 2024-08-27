@@ -17,7 +17,26 @@ class PackageController extends Controller
      */
     public function index()
     {
-        $packages = Package::paginate();
+
+        $packages = Package::query();
+
+        $show = null;
+        if (isset($_GET['show']) && $_GET['show']) {
+            $show = $_GET['show'];
+        }
+
+        if (isset($_GET['search']) && $_GET['search']) {
+            $search = $_GET['search'];
+            $packages = $packages->where('name', 'like', '%' . $search . '%');
+        }
+
+        if (isset($_GET['orderby']) && $_GET['orderby']) {
+            $orderby = $_GET['orderby'];
+            $packages = $packages->orderBy('created_at', $orderby);
+        }
+
+        $packages = $packages->paginate($show ?? 10)->appends($_GET);
+        // $packages = Package::paginate();
         return Inertia::render('Admin/Package/Index',['packages'=> $packages]);
     }
 
@@ -60,7 +79,7 @@ class PackageController extends Controller
      */
     public function show(string $id)
     {
-       
+
     }
 
     /**

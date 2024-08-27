@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -16,9 +17,28 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::paginate(10);
+
+        $categories = Category::query();
+
+        $show = null;
+        if (isset($_GET['show']) && $_GET['show']) {
+            $show = $_GET['show'];
+        }
+
+        if (isset($_GET['search']) && $_GET['search']) {
+            $search = $_GET['search'];
+            $categories = $categories->where('name', 'like', '%' . $search . '%');
+        }
+
+        if (isset($_GET['orderby']) && $_GET['orderby']) {
+            $orderby = $_GET['orderby'];
+            $categories = $categories->orderBy('created_at', $orderby);
+        }
+
+        $categories = $categories->paginate($show ?? 10)->appends($_GET);
+        // $categories = Category::paginate(10);
         // return $categories;
-        return Inertia::render('Admin/Category/Index',['categories'=> $categories]);
+        return Inertia::render('Admin/Category/Index', ['categories' => $categories]);
     }
 
     /**
@@ -37,13 +57,14 @@ class CategoryController extends Controller
         // return $request->all();
 
         $request->validate([
-            'name'=>'required'
+            'name' => 'required'
         ]);
 
-        $data=[
-            'name'=> $request->name,
-            'slug'=> Str::slug($request->name),
-            'author_id'=> Auth::user()->id,
+        $data = [
+            'name' => $request->name,
+            'slug' => Str::slug($request->name),
+            'author_id' => Auth::user()->id,
+            'status' => $request->status,
         ];
         if ($request->file('thumbnail')) {
             $file_name = $request->file('thumbnail')->store('category');
@@ -69,7 +90,7 @@ class CategoryController extends Controller
     public function edit(string $id)
     {
         $category = Category::where('id', $id)->first();
-        return Inertia::render('Admin/Category/Edit', ['category'=>$category]);
+        return Inertia::render('Admin/Category/Edit', ['category' => $category]);
     }
 
     /**
@@ -77,15 +98,28 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
+
+        // return $request->all();
         $request->validate([
-            'name'=>'required'
+            'name' => 'required'
         ]);
 
         $data = [
-            'name'=> $request->name,
-            'slug'=> Str::slug($request->name),
-            'author_id'=> Auth::user()->id,
+            'name' => $request->name,
+            'slug' => Str::slug($request->name),
+            'author_id' => Auth::user()->id,
+            'status' => $request->status,
         ];
+
+        $category = Category::firstwhere('id', $id);
+        if ($request->file('thumbnail')) {
+            if ($category->thumbnail != null && Storage::exists($category->thumbnail)) {
+                Storage::delete($category->thumbnail);
+            }
+
+            $file_name = $request->file('thumbnail')->store('category');
+            $data['thumbnail'] = $file_name;
+        }
 
         Category::firstwhere('id', $id)->update($data);
         return to_route('category.index');

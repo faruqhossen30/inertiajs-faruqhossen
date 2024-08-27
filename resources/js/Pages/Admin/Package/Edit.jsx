@@ -7,6 +7,7 @@ import InputLabel from '@/Components/Form/InputLabel';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import BreadcumComponent from '@/Components/Dashboard/BreadcumComponent';
+import RichTextEditor from '@/Components/RichTextEditor';
 
 
 export default function Edit({ auth, pac }) {
@@ -41,36 +42,15 @@ export default function Edit({ auth, pac }) {
                                 <p className="text-sm text-red-600 mt-2">{errors.name}</p>
                             </div>
 
-                            {/* <div>
-                                <InputLabel isRequired={true} labelFor="thumbnail" />
-                                <input id="thumbnail" type="file" name="thumbnail"  value={data.thumbnail}  placeholder="thumbnail"     } />
-                                <p className="text-sm text-red-600 mt-2">{errors.thumbnail}</p>
-                            </div> */}
 
-                            <div>
-                                <CKEditor
-
-                                    editor={ClassicEditor}
-                                    data={data.description}
-                                    onReady={editor => {
-                                        // You can store the "editor" and use when it is needed.
-                                        // console.log('Editor is ready to use!', editor);
-                                    }}
-                                    onChange={(event, editor) => {
-                                        // console.log(editor.getData());
-                                        setData('description', editor.getData())
-                                    }}
-                                    onBlur={(event, editor) => {
-                                        // console.log('Blur.', editor);
-                                    }}
-                                    onFocus={(event, editor) => {
-                                        // console.log('Focus.', editor);
-                                    }}
-                                />
-                                <p className="text-sm text-red-600 mt-2">{errors.description}</p>
+                            <div className='pb-10'>
+                                <InputLabel isRequired={true} labelFor="Description" />
+                                <RichTextEditor setData={setData} data={data} name="description" onChange={(e) => setData('description', e.target.value)} />
                             </div>
 
-                            <SubmitButton />
+
+
+                            <SubmitButton title={'Update'}/>
                         </form>
                     </div>
                 </div>

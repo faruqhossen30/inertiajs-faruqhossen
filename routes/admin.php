@@ -24,8 +24,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function (
     // Service
     Route::resource('service', ServiceController::class);
     Route::resource('category', CategoryController::class);
+    Route::post('category/{id}', [CategoryController::class, 'update'])->name('categoryupdate');
 
     Route::resource('tools', ToolController::class);
+    Route::post('tools/{id}', [ToolController::class, 'update'])->name('toolupdate');
 
     Route::resource('skill', SkillController::class);
     Route::post('skill/{id}', [SkillController::class, 'update'])->name('skillupdate');

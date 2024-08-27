@@ -1,10 +1,11 @@
 import ButtonPlus from '@/Components/Button/ButtonPlus';
 import BreadcumComponent from '@/Components/Dashboard/BreadcumComponent';
-import Pagination from '@/Components/Table/Pagination';
 import { PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
 import { EyeIcon } from '@heroicons/react/24/solid';
 import { Head, Link } from '@inertiajs/react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+import SearchFilter from '@/Components/Table/SearchFilter';
+import Pagination from '@/Components/Pagination';
 
 
 export default function Index({ auth, categories }) {
@@ -22,7 +23,7 @@ export default function Index({ auth, categories }) {
                     <div className="p-1.5 min-w-full inline-block align-middle">
                         <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden dark:bg-slate-900 dark:border-gray-700">
 
-
+                        <SearchFilter routeName={'category.index'} />
                             {/* <!-- Table --> */}
                             <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                                 <thead className="bg-gray-50 dark:bg-slate-800">
@@ -127,7 +128,10 @@ export default function Index({ auth, categories }) {
                             </table>
                             {/* <!-- End Table --> */}
 
-                            <Pagination pagination={categories} links={categories.links} />
+                            <hr />
+                            <div className="py-5 px-3">
+                                <Pagination pagination={categories} links={categories.links} />
+                            </div>
                         </div>
                     </div>
                 </div>

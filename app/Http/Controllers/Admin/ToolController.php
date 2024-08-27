@@ -18,7 +18,26 @@ class ToolController extends Controller
      */
     public function index()
     {
-        $tools = Tool::paginate(10);
+        $tools = Tool::query();
+
+        $show = null;
+        if (isset($_GET['show']) && $_GET['show']) {
+            $show = $_GET['show'];
+        }
+
+        if (isset($_GET['search']) && $_GET['search']) {
+            $search = $_GET['search'];
+            $tools = $tools->where('name', 'like', '%' . $search . '%');
+        }
+
+        if (isset($_GET['orderby']) && $_GET['orderby']) {
+            $orderby = $_GET['orderby'];
+            $tools = $tools->orderBy('created_at', $orderby);
+        }
+
+        $tools = $tools->paginate($show ?? 10)->appends($_GET);
+
+        // $tools = Tool::paginate(10);
         return Inertia::render('Admin/Tool/Index', ['tools' => $tools]);
     }
 
@@ -70,7 +89,9 @@ class ToolController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $tool = Tool::where('id', $id)->first();
+        $categories = Category::get();
+        return Inertia::render('Admin/Tool/Edit', ['tool' => $tool,'categories' => $categories]);
     }
 
     /**

@@ -18,7 +18,26 @@ class SkillController extends Controller
      */
     public function index()
     {
-        $skills = Skill::paginate(10);
+
+        $skills = Skill::query();
+
+        $show = null;
+        if (isset($_GET['show']) && $_GET['show']) {
+            $show = $_GET['show'];
+        }
+
+        if (isset($_GET['search']) && $_GET['search']) {
+            $search = $_GET['search'];
+            $skills = $skills->where('name', 'like', '%' . $search . '%');
+        }
+
+        if (isset($_GET['orderby']) && $_GET['orderby']) {
+            $orderby = $_GET['orderby'];
+            $skills = $skills->orderBy('created_at', $orderby);
+        }
+
+        $skills = $skills->paginate($show ?? 10)->appends($_GET);
+        // $skills = Skill::paginate(10);
         // return $skills;
         return Inertia::render('Admin/Skill/Index', ['skills' => $skills]);
     }
@@ -37,6 +56,8 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
+
+        // return $request->all();
         $request->validate([
             'name' => 'required'
         ]);
@@ -47,6 +68,7 @@ class SkillController extends Controller
             'description' => $request->description,
             'category_id' => $request->category_id,
             'author_id' => Auth::user()->id,
+            'status' => $request->status,
         ];
         if ($request->file('thumbnail')) {
             $file_name = $request->file('thumbnail')->store('skill');
@@ -81,16 +103,19 @@ class SkillController extends Controller
      */
     public function update(Request $request, string $id)
     {
+
+        // return $request->all();
         $request->validate([
             'name' => 'required'
         ]);
 
         $data = [
-            'name' => $request->name,
-            'slug' => Str::slug($request->name),
+            'name'        => $request->name,
+            'slug'        => Str::slug($request->name),
             'description' => $request->description,
             'category_id' => $request->category_id,
-            'author_id' => Auth::user()->id,
+            'author_id'   => Auth::user()->id,
+            'status'      => $request->status,
         ];
 
         $skill = Skill::firstwhere('id', $id);

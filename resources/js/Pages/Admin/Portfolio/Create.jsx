@@ -8,6 +8,8 @@ import SubmitButton from '@/Components/Form/SubmitButton';
 import Select from 'react-select'
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import RichTextEditor from '@/Components/RichTextEditor';
+import ThumbnailInput from '@/Components/Form/ThumbnailInput';
 
 
 export default function Create({ auth, categories, tools }) {
@@ -36,7 +38,7 @@ export default function Create({ auth, categories, tools }) {
                         <div className="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-gray-800 dark:border-neutral-700 dark:shadow-neutral-700/70">
                             <div className="bg-gray-100 border-b rounded-t-xl py-3 px-4 md:py-4 md:px-5 dark:bg-gray-800 dark:border-neutral-700">
                                 <p className="mt-1 text-sm text-gray-500 dark:text-neutral-500">
-                                    Category Create
+                                Portfolio Create
                                 </p>
                             </div>
                             <div className="p-4 md:p-5">
@@ -46,26 +48,9 @@ export default function Create({ auth, categories, tools }) {
                                         <Input id="title" type="text" name="title" value={data.title} autoComplete="title" placeholder="title" onChange={(e) => setData('title', e.target.value)} />
                                         <p className="text-sm text-red-600 mt-2">{errors.title}</p>
                                     </div>
-                                    <div>
-                                        <CKEditor
-                                            editor={ClassicEditor}
-                                            data={data.description}
-                                            onReady={editor => {
-                                                // You can store the "editor" and use when it is needed.
-                                                // console.log('Editor is ready to use!', editor);
-                                            }}
-                                            onChange={(event, editor) => {
-                                                // console.log(editor.getData());
-                                                setData('description', editor.getData())
-                                            }}
-                                            onBlur={(event, editor) => {
-                                                // console.log('Blur.', editor);
-                                            }}
-                                            onFocus={(event, editor) => {
-                                                // console.log('Focus.', editor);
-                                            }}
-                                        />
-                                        <p className="text-sm text-red-600 mt-2">{errors.description}</p>
+                                    <div className='pb-20'>
+                                        <InputLabel isRequired={true} labelFor="Description" />
+                                        <RichTextEditor setData={setData} data={data} name="description" />
                                     </div>
                                     <SubmitButton />
                                 </div>
@@ -76,15 +61,15 @@ export default function Create({ auth, categories, tools }) {
                         <div className="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-gray-800 dark:border-neutral-700 dark:shadow-neutral-700/70">
                             <div className="bg-gray-100 border-b rounded-t-xl py-3 px-4 md:py-4 md:px-5 dark:bg-gray-800 dark:border-neutral-700">
                                 <p className="mt-1 text-sm text-gray-500 dark:text-neutral-500">
-                                    Category Create
+                                Portfolio Create
                                 </p>
                             </div>
                             <div className="px-2 py-2 sm:px-6 lg:px-4 mx-auto w-full">
-                                <div>
-                                    <InputLabel isRequired={true} labelFor="thumbnail" />
-                                    <input id="thumbnail" type="file" name="thumbnail" placeholder="thumbnail" onChange={(e) => setData('thumbnail', e.target.files[0])} />
-                                    <p className="text-sm text-red-600 mt-2">{errors.thumbnail}</p>
-                                </div>
+                            <div className="max-w-xs">
+                                <InputLabel isRequired={true} labelFor="thumbnail" />
+                                <ThumbnailInput name="thumbnail" setData={setData} errors={errors} placeholder="Thumbnail" />
+                            </div>
+
 
                                 <div>
                                     <InputLabel isRequired={true} labelFor="status" />

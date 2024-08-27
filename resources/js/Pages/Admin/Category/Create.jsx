@@ -5,7 +5,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import InputLabel from '@/Components/Form/InputLabel';
 import Input from '@/Components/Form/Input';
 import SubmitButton from '@/Components/Form/SubmitButton';
-
+import ThumbnailInput from '@/Components/Form/ThumbnailInput';
 
 export default function Create({ auth }) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -40,10 +40,16 @@ export default function Create({ auth }) {
                                 <p className="text-sm text-red-600 mt-2">{errors.name}</p>
                             </div>
 
-                            <div>
+                            {/* <div>
                                 <InputLabel isRequired={true} labelFor="thumbnail" />
                                 <input id="thumbnail" type="file" name="thumbnail"  placeholder="thumbnail" onChange={(e) => setData('thumbnail', e.target.files[0])} />
                                 <p className="text-sm text-red-600 mt-2">{errors.thumbnail}</p>
+                            </div> */}
+
+
+                            <div className="max-w-xs">
+                                <InputLabel isRequired={true} labelFor="thumbnail" />
+                                <ThumbnailInput name="thumbnail" setData={setData} errors={errors} placeholder="Thumbnail" />
                             </div>
 
                             <div>

@@ -5,6 +5,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import InputLabel from '@/Components/Form/InputLabel';
 import Input from '@/Components/Form/Input';
 import SubmitButton from '@/Components/Form/SubmitButton';
+import ThumbnailInput from '@/Components/Form/ThumbnailInput';
 
 
 export default function Create({ auth, categories }) {
@@ -23,12 +24,12 @@ export default function Create({ auth, categories }) {
 
     return (
         <AuthenticatedLayout>
-            <BreadcumComponent pageOne="Categories" pageOneRoute="category.index" />
+            <BreadcumComponent pageOne="Skills" pageOneRoute="skill.index" />
 
             <div className="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-gray-800 dark:border-neutral-700 dark:shadow-neutral-700/70">
                 <div className="bg-gray-100 border-b rounded-t-xl py-3 px-4 md:py-4 md:px-5 dark:bg-gray-800 dark:border-neutral-700">
                     <p className="mt-1 text-sm text-gray-500 dark:text-neutral-500">
-                        Category Create
+                        Skill Create
                     </p>
                 </div>
                 <div className="p-4 md:p-5">
@@ -57,13 +58,10 @@ export default function Create({ auth, categories }) {
                                     className="border py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"></textarea>
                                 <p className="text-sm text-red-600 mt-2">{errors.thumbnail}</p>
                             </div>
-
-                            <div>
+                            <div className="max-w-xs">
                                 <InputLabel isRequired={true} labelFor="thumbnail" />
-                                <input id="thumbnail" type="file" name="thumbnail" placeholder="thumbnail" onChange={(e) => setData('thumbnail', e.target.files[0])} />
-                                <p className="text-sm text-red-600 mt-2">{errors.thumbnail}</p>
+                                <ThumbnailInput name="thumbnail" setData={setData} errors={errors} placeholder="Thumbnail" />
                             </div>
-
                             <div>
                                 <InputLabel isRequired={true} labelFor="status" />
                                 <select id="status" name="status" className="py-2 px-4 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"

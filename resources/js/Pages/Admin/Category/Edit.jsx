@@ -5,18 +5,20 @@ import Input from '@/Components/Form/Input';
 import SubmitButton from '@/Components/Form/SubmitButton';
 import InputLabel from '@/Components/Form/InputLabel';
 import BreadcumComponent from '@/Components/Dashboard/BreadcumComponent';
+import ThumbnailInput from '@/Components/Form/ThumbnailInput';
 
-
-export default function Create({ auth,category }) {
+export default function Create({ auth, category }) {
     console.log(category);
-    const { data, setData, put, processing, errors, reset } = useForm({
-        name: category.name,
-        status: category.status,
+    const { data, setData, put, post, processing, errors, reset } = useForm({
+        name     : category.name,
+        thumbnail: category.thumbnail,
+        status   : category.status,
+
     });
 
     function submit(e) {
         e.preventDefault()
-        put(route('category.update', category.id));
+        post(route('categoryupdate', category.id));
     }
 
     return (
@@ -37,17 +39,21 @@ export default function Create({ auth,category }) {
                                 <Input id="name" type="text" name="name" value={data.name} autoComplete="name" placeholder="name" onChange={(e) => setData('name', e.target.value)} />
                                 <p className="text-sm text-red-600 mt-2">{errors.name}</p>
                             </div>
+                            <div className="max-w-xs">
+                                <InputLabel isRequired={true} labelFor="thumbnail" />
+                                <ThumbnailInput name="thumbnail" thumbnail={data.thumbnail} setData={setData} errors={errors} placeholder="Thumbnail" />
 
+                            </div>
                             <div>
                                 <InputLabel isRequired={true} labelFor="status" />
-                                <select id="status" name="status" className="py-2 px-4 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+                                <select id="status" name="status" value={data.status} className="py-2 px-4 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
                                     onChange={(e) => setData('status', e.target.value)}>
                                     <option value="1">Yes</option>
                                     <option value="0">No</option>
                                 </select>
                                 <p className="text-sm text-red-600 mt-2">{errors.status}</p>
                             </div>
-                            <SubmitButton />
+                            <SubmitButton title={'Update'} />
                         </form>
                     </div>
                 </div>

@@ -21,7 +21,27 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        $portfolios = Portfolio::paginate(10);
+
+
+        $portfolios = Portfolio::query();
+
+        $show = null;
+        if (isset($_GET['show']) && $_GET['show']) {
+            $show = $_GET['show'];
+        }
+
+        if (isset($_GET['search']) && $_GET['search']) {
+            $search = $_GET['search'];
+            $portfolios = $portfolios->where('name', 'like', '%' . $search . '%');
+        }
+
+        if (isset($_GET['orderby']) && $_GET['orderby']) {
+            $orderby = $_GET['orderby'];
+            $portfolios = $portfolios->orderBy('created_at', $orderby);
+        }
+
+        $portfolios = $portfolios->paginate($show ?? 10)->appends($_GET);
+        // $portfolios = Portfolio::paginate(10);
         return Inertia::render('Admin/Portfolio/Index', ['portfolios' => $portfolios]);
     }
 
@@ -87,9 +107,10 @@ class PortfolioController extends Controller
     public function edit(string $id)
     {
         $categories = Category::get();
+        $tool = Tool::get();
         $portfolio = Portfolio::firstWhere('id', $id);
 
-        return Inertia::render('Admin/Portfolio/Edit', ['portfolio' => $portfolio, 'categories' => $categories]);
+        return Inertia::render('Admin/Portfolio/Edit', ['portfolio' => $portfolio, 'categories' => $categories,'tool' => $tool]);
     }
 
     /**
@@ -97,18 +118,19 @@ class PortfolioController extends Controller
      */
     public function update(Request $request, string $id)
     {
+
+        // return $request->all();
         $request->validate([
             'title' => 'required',
             'description' => 'required',
         ]);
 
-        DB::beginTransaction();
         try {
             $data = [
-                'title' => $request->title,
-                'slug' => Str::slug($request->title),
+                'title'       => $request->title,
+                'slug'        => Str::slug($request->title),
                 'description' => $request->description,
-                'status' => $request->status
+                'status'      => intval($request->status)
             ];
 
             $portfolio = Portfolio::firstwhere('id', $id);
@@ -118,7 +140,7 @@ class PortfolioController extends Controller
                     Storage::delete($portfolio->thumbnail);
                 }
 
-                $file_name = $request->file('thumbnail')->store('skill');
+                $file_name = $request->file('thumbnail')->store('portfolio');
                 $data['thumbnail'] = $file_name;
             }
 

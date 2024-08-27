@@ -1,17 +1,18 @@
 import ButtonPlus from '@/Components/Button/ButtonPlus';
 import BreadcumComponent from '@/Components/Dashboard/BreadcumComponent';
-import Pagination from '@/Components/Table/Pagination';
 import { PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
 import { EyeIcon } from '@heroicons/react/24/solid';
 import { Head, Link } from '@inertiajs/react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+import SearchFilter from '@/Components/Table/SearchFilter';
+import Pagination from '@/Components/Pagination';
 
 
 export default function Index({ auth, skills }) {
     return (
         <AuthenticatedLayout>
             <div className="flex justify-between items-center">
-                <BreadcumComponent pageOne="Categories" pageOneRoute="skill.index" />
+                <BreadcumComponent pageOne="Skills" pageOneRoute="skill.index" />
                 <ButtonPlus routeName={route("skill.create")} />
             </div>
 
@@ -23,6 +24,7 @@ export default function Index({ auth, skills }) {
                         <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden dark:bg-slate-900 dark:border-gray-700">
 
 
+                            <SearchFilter routeName={'skill.index'} />
                             {/* <!-- Table --> */}
                             <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                                 <thead className="bg-gray-50 dark:bg-slate-800">
@@ -89,7 +91,7 @@ export default function Index({ auth, skills }) {
                                                 </td>
                                                 <td className="h-px w-px whitespace-nowrap">
                                                     <div className="px-6 py-2">
-                                                    <img src={window.location.protocol + '/storage/' + item.thumbnail} alt="photo" className="h-4" />
+                                                        <img src={window.location.protocol + '/storage/' + item.thumbnail} alt="photo" className="h-4" />
                                                     </div>
                                                 </td>
 
@@ -125,8 +127,11 @@ export default function Index({ auth, skills }) {
                                 </tbody>
                             </table>
                             {/* <!-- End Table --> */}
-
+                            <hr />
+                            <div className="py-5 px-3">
                             <Pagination pagination={skills} links={skills.links} />
+
+                            </div>
                         </div>
                     </div>
                 </div>
