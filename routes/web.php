@@ -35,6 +35,7 @@ Route::get('/', function () {
 
 Route::get('skills', [SkillpageController::class, 'index'])->name('skillpage');
 Route::get('contact', [ContactController::class, 'index'])->name('contact');
+Route::get('contact/calendy', [ContactController::class, 'calendy'])->name('calendypage');
 Route::get('services', [ServicepageController::class, 'index'])->name('servicepage');
 Route::get('service/{slug}', [ServicepageController::class, 'SingleService'])->name('single.service');
 Route::get('service', [ServicepageController::class, 'index'])->name('servicepage');

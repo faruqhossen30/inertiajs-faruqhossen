@@ -88,19 +88,6 @@ export default function Create({ auth, packages }) {
                                     <p className="text-sm text-red-600 mt-2">{errors.status}</p>
                                 </div>
 
-                                <div className='space-y-2'>
-                                    {
-                                        packages.map((pack, index) => {
-                                            return <div className="flex" key={index}>
-                                                <input name="package[]" type="checkbox" checked={pack.id} onChange={(e) => setData('package', e.target.checked)} id={index} className="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" />
-                                                <label htmlFor={index} className="text-sm text-gray-500 ms-3 dark:text-neutral-400">{pack.name}</label>
-                                            </div>
-                                        })
-                                    }
-
-
-                                </div>
-
                             </div>
                         </div>
                     </div>
